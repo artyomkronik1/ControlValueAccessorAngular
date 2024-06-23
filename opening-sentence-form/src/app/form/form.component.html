@@ -1,0 +1,29 @@
+
+  <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+  <div style="display: flex; flex-direction: column" >
+    <span class="title" >Test Page</span>
+
+    <app-input-field label="Name"
+                     id="name"
+                     name="name"
+                     type="text"
+                     [value]="nameValue"
+                     (valueChange)="nameValue = $event"
+    ></app-input-field>
+
+
+    <app-input-field label="Phone"
+                     id="phone"
+                     name="phone"
+                     type="tel"
+                     [value]="phoneValue"
+                     (valueChange)="phoneValue = $event"
+    ></app-input-field>
+
+
+    <app-opening-sentence></app-opening-sentence>
+<!--    <button type="submit">Submit</button>-->
+
+  </div>
+
+  </div>

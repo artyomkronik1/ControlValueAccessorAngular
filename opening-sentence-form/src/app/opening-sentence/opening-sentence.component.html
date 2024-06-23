@@ -1,0 +1,7 @@
+<div class="opening-sentence-box">
+<textarea class="opening-sentence-textarea" [(ngModel)]="sentence" (input)="onTextareaInput()"></textarea>
+
+  <div class="placeholders" >
+    <button class="btn" *ngFor="let placeholder of placeholders" (click)="updateSentence(placeholder)"><span>{{ placeholder }}</span></button>
+</div>
+</div>
