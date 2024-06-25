@@ -13,7 +13,7 @@ import { InputFieldComponent } from './input-field/input-field.component';
     AppComponent,
     OpeningSentenceComponent,
     FormComponent,
-    InputFieldComponent
+    InputFieldComponent,
   ],
     imports: [
         BrowserModule,

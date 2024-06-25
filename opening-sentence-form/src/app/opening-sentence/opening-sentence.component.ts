@@ -14,7 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class OpeningSentenceComponent implements ControlValueAccessor {
-  sentence = 'Hi, this is [agent_name]. I’m calling from [company_name], do you have a few minutes to answer some questions?';
+  sentence = 'Hi, this is Agent Name. I’m calling from Company Name, do you have a few minutes to answer some questions?';
   placeholders = ['[company_name]', '[agent_name]', '[first_name]', '[last_name]'];
 
 
@@ -39,11 +39,28 @@ export class OpeningSentenceComponent implements ControlValueAccessor {
   }
 
   updateSentence(placeholder: string) {
+    let styledPlaceholder = placeholder;
+    switch (placeholder) {
+      case '[company_name]':
+        styledPlaceholder = ' Company Name';
+        break;
+      case '[agent_name]':
+        styledPlaceholder = ' Agent Name';
+        break;
+      case '[first_name]':
+        styledPlaceholder = ' First Name';
+        break;
+      case '[last_name]':
+        styledPlaceholder = ' Last Name';
+        break;
+      default:
+        break;
+    }
     const cursorPos = this.getTextareaCursorPosition();
-    const newSentence = `${this.sentence.slice(0, cursorPos)}${placeholder}${this.sentence.slice(cursorPos)}`;
+    const newSentence = `${this.sentence.slice(0, cursorPos)}${styledPlaceholder}${this.sentence.slice(cursorPos)}`;
     this.writeValue(newSentence);
     this.onChange(newSentence);
-    this.setCaretPosition(cursorPos + placeholder.length);
+    this.setCaretPosition(cursorPos + styledPlaceholder.length);
   }
 
   private getTextareaCursorPosition(): number {
